@@ -18,3 +18,15 @@ docker exec -it mysql-adminer_mysql bash
 ```shell
 docker-compose -f docker-compose.yml down
 ```
+
+## Resetear las bases de datos al estado inicial
+
+```shell
+./resetdb.sh
+```
+
+## Ejecutar una query en línea
+
+```shell
+docker exec -i mysql-adminer_mysql mysql -u root -proot -e "ALTER USER 'david'@'%' IDENTIFIED BY 'david'"
+```
