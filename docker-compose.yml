@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+    db:
+        container_name: mysql-adminer_mysql
+        #image: mysql:latest
+        image: mariadb:latest
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        ports:
+            - 3306:3306
+        volumes:
+            - ./mysql-data:/var/lib/mysql
+            - ./dump/:/docker-entrypoint-initdb.d
+        #command: --innodb-use-native-aio=0
+    adminer:
+        container_name: mysql-adminer_adminer
+        image: adminer:latest
+        ports:
+            - 8100:8080
